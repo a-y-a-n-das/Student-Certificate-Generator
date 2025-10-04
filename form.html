@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+    <script src="logic.js" defer></script>
+
+    <title>Student Certificate Download</title>
+    <style>
+      
+      .form-style {
+        display: flex;
+        align-items: center;
+        margin-left: 5px;
+        justify-content: center;
+      }
+
+      .form-style input {
+        margin-left: 0px;
+        margin-top: 4px;
+      }
+
+      .form-style label {
+        margin-top: 4px;
+        min-width: 80px;
+        display: inline-block;
+      }
+
+      .clean-up {
+        color: blue;
+        border-style: groove;
+        border-width: 1px;
+        border-radius: 10px;
+        padding: 2px 5px;
+        border-color: black;
+        margin: 2px 2px 2px 0px;
+        cursor: pointer;
+      }
+
+      .clean-up:hover{
+        color: black;
+        outline: 2px solid black;
+      }
+
+      .clean-up:active{
+        background-color: dodgerblue;
+        color: white;
+        border-color: navajowhite;
+        transform: scale(0.95);
+      }
+
+      #TnC {
+        color: red;
+        font-weight: bold;
+      }
+      body {
+        background-color: rgb(235, 232, 232);
+      }
+      #certificate {
+        border: 3px solid black;
+        padding: 20px;
+        text-align: center;
+        width: 70%;
+        margin: 30px auto;
+        font-family: serif;
+      }
+      #cert-name {
+        font-size: 2em;
+        font-weight: bold;
+      }
+
+      #pdf {
+        margin: 10px auto;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 style="display: flex; justify-self: center; padding-top: 70px; font-size: 35px;">Student Certificate Download</h1>
+    <div class="form-style">
+      <form id="cert-form">
+        <label for="fname">First Name:</label>
+        <input type="text" id="fname" name="fname" placeholder="Jon" /><br />
+        <label for="lname">Last Name:</label>
+        <input type="text" id="lname" name="lname" placeholder="Doe" /><br />
+        <label for="course">Course:</label>
+        <input
+          type="text"
+          id="course"
+          name="course"
+          placeholder="Course"
+        /><br />
+        <input type="radio" id="y-23" name="year" value="2023" />
+        <label for="y-23">2023</label><br />
+        <input type="radio" id="y-24" name="year" value="2024" />
+        <label for="y-24">2024</label><br />
+        <input type="radio" id="y-25" name="year" value="2025" />
+        <label for="y-25">2025</label><br />
+        <label>
+          <input type="checkbox" id="TnC" name="TnC" value="true" />
+          The above information I have provided is best of my knowledge.* </label
+        ><br />
+        <button class="clean-up" type"submit" value="submit">Submit</button>
+
+        <button type="button" class="clean-up">Clear</button>
+      </form>
+    </div>
+
+    <div class="Certificate" id="certificate" hidden>
+      <p>
+        This is to certify that
+        <span id="cert-name">[Name]</span>
+      </p>
+      <p>
+        has successfully completed the course
+        <span id="cert-course">[Course]</span>
+      </p>
+      <p>in the year <span id="cert-year">[Year]</span></p>
+      <br>
+    </div>
+    <button id="pdf" type="button" hidden>Pdf</button>
+  </body>
+</html>
